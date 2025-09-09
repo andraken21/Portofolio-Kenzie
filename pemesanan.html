@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulir Pemesanan Website</title>
+  <link rel="icon" type="image/png" href="https://png.pngtree.com/png-clipart/20230418/original/pngtree-trolley-line-icon-png-image_9065418.png">
+  <style>
+    /* Ini bagian CSS untuk mempercantik body */
+    body{
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #2c5364);
+      color: #f0f0f0;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      margin: 0;
+    }
+
+    /* Ini bagian CSS untuk mempercantik bagian header */
+    header{
+      color: #eeeeee;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      margin-top: 20px;
+    }
+    header marquee {
+      font-weight: bold;
+      font-size: 150%;
+      color: #f1c40f;
+      text-shadow: 0 0 8px rgba(241,196,15,0.7);
+    }
+
+    /* Ini bagian CSS untuk mempercantik bagian form */
+    form{
+      width: 60%;
+      margin: 40px auto;
+      text-align: center;
+      margin-bottom: 7%;
+    }
+    fieldset{
+      background: rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 25px 35px;
+      border: 2px solid rgba(241,196,15,0.6);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+      text-align: left;
+      animation: fadeIn 1s ease-in;
+    }
+    legend{
+      font-size: 140%;
+      font-weight: bold;
+      color: #f1c40f;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    /* Input dan textarea */
+    input[type=text], input[type=number], textarea, select{
+      width: 95%;
+      padding: 10px 15px;
+      margin: 8px 0 18px;
+      right: 100%;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      font-size: 15px;
+      outline: none;
+      transition: all 0.3s ease;
+      caret-color: #f1c40f;
+    }
+    input:focus, textarea:focus, select:focus{
+      background: rgba(255,255,255,0.2);
+      box-shadow: 0 0 8px #f1c40f;
+    }
+
+    select{
+      width: 99%;
+    }
+    select option{
+      background-color: #2c5364;
+    }
+    textarea{
+      height: 100px;
+      resize: none;
+      color: #ffffff;
+
+    }
+
+    /* Radio & Checkbox */
+    label{
+      font-size: 15px;
+      margin-right: 5px;
+      color: #f1c40f;
+    }
+    input[type=radio], input[type=checkbox]{
+      margin-right: 4px;
+      margin-top: 10px;
+      accent-color: #f1c40f;
+    }
+
+    /* Tombol */
+    button[type=reset], button[type=submit]{
+      background: linear-gradient(135deg, #f1c40f, #b8860b);
+      color: #222;
+      border-radius: 8px;
+      padding: 10px 20px;
+      margin-top: 15px;
+      margin-right: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 18px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      width: 25%;
+    }
+    button[type=submit]:hover, button[type=reset]:hover{
+      background: linear-gradient(135deg, #ffdb4d, #daa520);
+      transform: scale(1.05);
+    }
+
+    /* Animasi muncul */
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Ini bagian CSS untuk mempercantik bagian footer */
+    .copyright {
+      margin-top: 40px;
+      background: rgba(255,255,255,0.1);
+      text-align: center;
+      padding: 15px;
+      font-weight: bold;
+      font-size: 15px;
+      border-top: 2px solid #f1c40f;
+      color: #f1f1f1;
+      backdrop-filter: blur(6px);
+    }
+    .highlight {
+      color: #f1c40f;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+     /* CSS untuk ukuran hp atau biasa dibilang agar website responsif */
+        @media (max-width: 600px) {
+            form{
+                width: 100%;
+                padding: 0 20px;
+                box-sizing: border-box;
+            }
+            fieldset{
+                padding: 20px 5px;
+            }
+
+            legend {
+                font-size: 1.2rem;
+            }
+            header{
+                text-align: center;
+                font-size: 10px;
+            }
+            h1{
+                font-size: 15px;
+            }
+            label {
+                font-size: 80%;
+                margin-left: 5px;
+            }
+            input[type=text], input[type=number], textarea, select {
+                width: 90%;
+                margin-left: 5px;
+            }
+            select{
+              width: 97.5%;
+            }
+            input[type=radio], input[type=checkbox]{
+              margin-right: 30px;
+            }
+            .rd{
+              margin-right: 15px;
+            }
+            input[type=checkbox]{
+              margin-right: 20px;
+            }
+            .cbe{
+              margin-right: 50px;
+            }
+            .cbc, .cbp{
+              margin-right: 20px;
+            }
+            .cbm{
+              margin-right: 15px;
+            }
+            
+            button[type=submit], button[type=reset] {
+                width: 45%;
+                margin: 8px 9px;
+            }
+        }
+  </style>
+</head>
+<body>
+  <!-- Ini adalah bagian header -->
+  <header>
+    <h1>
+      <marquee behavior="slide" loop="100" direction="left">
+        &#9996; Mari Pesan Website Disini Yaa!!! &#128516;
+      </marquee>
+    </h1>
+  </header>
+
+  <!-- Ini adalah bagian form -->
+  <form action="ucapan.html" method="post">
+    <fieldset>
+      <legend>Formulir Pemesanan Website</legend>
+
+      <!-- form bagian nama -->
+      <label for="nama">Nama</label><br>
+      <input type="text" id="nama" name="nama" placeholder="Masukkan Nama Panjang Atau Nama Perusahaan Anda" required><br>
+
+      <!-- form bagian nomor -->
+      <label for="nomor">Nomor Telepon</label><br>
+      <input type="number" id="nomor" name="nomor" placeholder="Masukkan Nomor Telepon" required><br>
+
+      <!-- form bagian pemilihan jenis website -->
+      <label for="jw">Jenis Website</label><br>
+      <input type="radio" name="jw" id="wp" value="Website Personal"><label for="wp" class="rd">Personal</label>
+      <input type="radio" name="jw" id="we" value="Website E - Commerce"><label for="we" class="rd">E - Commerce</label>
+      <input type="radio" name="jw" id="wi" value="Website Instansi"><label for="wi" class="rd">Instansi</label>
+      <input type="radio" name="jw" id="wb" class="wb" value="Website Berita"><label for="wb" class="rd">Berita</label>
+      <input type="radio" name="jw" id="wm" value="Website Media Sosial"><label for="wm" class="rd">Media Sosial</label>
+      <input type="radio" name="jw" id="wh" value="Website Hiburan"><label for="wh" class="rd">Hiburan</label>
+      <input type="radio" name="jw" id="wc" value="Websit Portofolio"><label for="wc" class="rd">Portofolio</label><br><br>
+
+      <!-- form bagian pemilihan tema website -->
+      <label for="tema">Tema Website</label><br>
+      <input type="checkbox" id="minimalis" name="tema" value="minimalis"><label for="minimalis" class="cbm">Minimalis</label>
+      <input type="checkbox" id="modern" name="tema" value="modern"><label for="modern" class="cbo">Modern</label>
+      <input type="checkbox" id="elegan" name="tema" value="elegan"><label for="elegan" class="cbe">Elegan / Premium</label>
+      <input type="checkbox" id="ceria" name="tema" value="ceria" class="cer"><label for="ceria" class="cbc">Ceria</label>
+      <input type="checkbox" id="formal" name="tema" value="formal"><label for="formal" class="cbp">Formal / Profesional</label>
+      <input type="checkbox" id="dark" name="tema" value="dark"><label for="dark" class="cbd">Dark Mode</label><br><br>
+
+      <!-- form bagian penjelasan detail website -->
+      <label for="penjelasan">Detail Website</label><br>
+      <textarea name="penjelasan" id="penjelasan" placeholder="Silahkan Jelaskan Secara Singkat Bagaimana Bentuk Website Yang Ingin Anda Buat" required></textarea><br>
+
+      <!-- form bagian budget pembuatan website -->
+      <label for="budget">Budget</label><br>
+      <select id="budget" name="budget" required>
+        <option value="" disabled selected hidden>-- Pilih budget Anda --</option>
+        <option value="1 Juta Kebawah">&lt; 1 Juta Kebawah</option>
+        <option value="1 - 2 Juta">1 - 2 Juta</option>
+        <option value="2 - 5 Juta">2 - 5 Juta</option>
+        <option value="5 - 10 Juta">5 - 10 Juta</option>
+        <option value="10 Juta Keatas">&gt; 10 Juta Keatas</option>
+      </select><br>
+
+      <!-- tombol -->
+      <center>
+        <button type="submit" value="Kirim" onclick="('Apakah kamu sudah yakin dengan pesanan mu?')">Pesan</button>
+        <button type="reset" value="Reset" onclick="('Yakin ingin menghapus semuanya?')">Reset</button>
+      </center>
+    </fieldset>
+  </form>
+
+  <!-- Ini adalah bagian footer untuk menaruh copyright -->
+  <footer class="copyright">
+    &copy; Copyright 2025 | Created By <span class="highlight">M. Andra Kenzie Sibuea</span> &#128526;
+  </footer>
+</body>
+</html>
