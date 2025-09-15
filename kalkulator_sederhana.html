@@ -1,0 +1,179 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Sederhana 2.0</title>
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.freepik.com/512/75/75775.png">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+    h1 {
+      margin-bottom: 50px;
+      font-size: 2.2em;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    }
+    form {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      width: 300px;
+      backdrop-filter: blur(10px);
+      margin-bottom: 20px;
+      transition: background 0.3s ease;
+    }
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 8px;
+      font-weight: bold;
+      font-size: 1.1em;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    input[type="number"] {
+      width: 95%;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+    input[type="number"]:focus {
+      box-shadow: 0 0 8px rgba(255, 111, 97, 0.7);
+      outline: none;
+    }
+    .operators {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+    .operators button {
+      flex: 1;
+      margin: 5px;
+      padding: 10px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 5px;
+      background: #ff6f61;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    }
+    .operators button:hover {
+      background: #ff3b2e;
+    }
+    #hasil {
+      margin: 20px auto;
+      padding: 15px;
+      min-height: 60px;
+      max-width: 100%;
+      width: 300px;
+      font-size: 1.5em;
+      font-weight: bold;
+      letter-spacing: 1px;
+      font-family: 'Courier New', Courier, monospace;
+      line-height: 1.4;
+      color: #fff;
+      text-align: center;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 400px) {
+      form {
+        width: 90%;
+        padding: 15px;
+      }
+      #hasil {
+        width: 94%;
+        font-size: 1.2em;
+        padding: 10px;
+        margin: 20px auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Kalkulator Sederhana Version 2.0</h1>
+  <form id="calcForm">
+    <label for="angka1">Angka 1:</label>
+    <input type="number" id="angka1" required>
+
+    <label for="angka2">Angka 2:</label>
+    <input type="number" id="angka2" required>
+
+    <div class="operators">
+      <button type="button" data-op="+">+</button>
+      <button type="button" data-op="-">−</button>
+      <button type="button" data-op="*">×</button>
+      <button type="button" data-op="/">÷</button>
+      <button type="button" id="backBtn">Back</button>
+    </div>
+  </form>
+
+  <p id="hasil">Hasil: </p>
+
+  <script>
+    const angka1 = document.getElementById('angka1');
+    const angka2 = document.getElementById('angka2');
+    const hasil = document.getElementById('hasil');
+    const operatorButtons = document.querySelectorAll('.operators button[data-op]');
+    const backBtn = document.getElementById('backBtn');
+
+    operatorButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const op = btn.getAttribute('data-op');
+        const a = parseFloat(angka1.value);
+        const b = parseFloat(angka2.value);
+
+        if (isNaN(a) || isNaN(b)) {
+          hasil.textContent = 'Hasil: Masukkan kedua angka!';
+          return;
+        }
+
+        let result;
+        switch (op) {
+          case '+': result = a + b; break;
+          case '-': result = a - b; break;
+          case '*': result = a * b; break;
+          case '/': result = (b !== 0) ? a / b : 'Error: Bagi 0'; break;
+        }
+
+        hasil.textContent = 'Hasil: ' + result;
+      });
+    });
+
+    backBtn.addEventListener('click', () => {
+      const yakin = confirm("Apakah Anda yakin ingin kembali ke menu sebelumnya?");
+      if (yakin) window.history.back();
+    });
+  </script>
+</body>
+</html>

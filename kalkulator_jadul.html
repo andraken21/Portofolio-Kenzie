@@ -1,0 +1,201 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        font-size: 2.5em;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    }
+
+    form {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        width: 300px;
+        backdrop-filter: blur(10px);
+        margin-bottom: 20px;
+        transition: background 0.3s ease;
+    }
+
+    label {
+        display: block;
+        text-align: left;
+        margin-bottom: 8px;
+        font-weight: bold;
+        font-size: 1.1em;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    input[type="number"], select {
+        width: 95%;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 15px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
+    }
+
+    select {
+        width: 100%;
+    }
+
+    input[type="submit"], [type="button"] {
+        background-color: #ff6f61;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+        width: 100%;
+        font-weight: bold;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    input[type="submit"]:hover, [type="button"]:hover {
+        background-color: #ff3b2e;
+    }
+
+    #hasil {
+        margin: 20px auto;
+        padding: 15px;
+        min-height: 60px;
+        max-width: 100%;
+        width: 300px;
+        font-size: 1.5em;
+        font-weight: bold;
+        letter-spacing: 1px;
+        font-family: 'Courier New', Courier, monospace;
+        line-height: 1.4;
+        color: #fff;
+        text-align: center;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        white-space: pre-wrap;
+        hyphens: auto;
+        transition: background 0.3s ease;
+    }
+
+    input[type="number"]:focus, select:focus {
+        box-shadow: 0 0 8px rgba(255, 111, 97, 0.7);
+        outline: none;
+    }
+
+    /* 🔹 Responsif untuk layar kecil */
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 1.8em;
+        }
+        form {
+            width: 100%;
+            padding: 15px;
+        }
+        input[type="number"], select, input[type="submit"] {
+            font-size: 14px;
+            padding: 8px;
+        }
+        #hasil {
+            width: 100%;
+            font-size: 1.2em;
+            padding: 10px;
+        }
+    }
+</style>
+<body>
+    
+    <h1>Kalkulator Sederhana</h1>
+    <form>
+        <label for="angka1">Angka 1:</label>
+        <input type="number" id="angka1" name="angka1" required><br><br>
+
+        <label for="angka2">Angka 2:</label>
+        <input type="number" id="angka2" name="angka2" required><br><br>
+
+        <label for="operasi">Operasi:</label>
+        <select id="operasi" name="operasi" required>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">x</option>
+            <option value="/">:</option>
+        </select><br><br>
+
+
+        <input type="submit" value="Hitung">
+        
+        <input type="button" onclick="window.history.back" value="Back">
+    </form>
+
+    <p id="hasil"> 
+        Hasil: 
+    </p>
+
+    <script>
+        const form = document.querySelector('form');
+        const hasil = document.getElementById('hasil');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const angka1 = parseFloat(document.getElementById('angka1').value);
+            const angka2 = parseFloat(document.getElementById('angka2').value);
+            const operasi = document.getElementById('operasi').value;
+
+            let result;
+            switch (operasi) {
+                case '+':
+                    result = angka1 + angka2;
+                    break;
+                case '-':
+                    result = angka1 - angka2;
+                    break;
+                case '*':
+                    result = angka1 * angka2;
+                    break;
+                case '/':
+                    result = (angka2 !== 0) ? angka1 / angka2 : 'Error: Pembagian dengan nol';
+                    break;
+                default:
+                    result = 'Operasi tidak valid';
+            }
+
+            hasil.textContent = 'Hasil: ' + result;
+        });
+    </script>
+</body>
+</html>

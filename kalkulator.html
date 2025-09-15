@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator</title>
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.freepik.com/512/75/75775.png">
+
+  <style>
+    /* --- Reset dan gaya umum --- */
+    * {
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+    }
+
+    /* --- Kotak kalkulator --- */
+    .calculator {
+      width: 320px;
+      background: #1e1e2f;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    /* --- Tampilan angka --- */
+    .display {
+      background: #2e2e3e;
+      color: #fff;
+      font-size: 2rem;
+      border-radius: 12px;
+      padding: 15px;
+      text-align: right;
+      margin-bottom: 15px;
+      overflow-x: auto; /* biar tidak meledak keluar */
+    }
+
+    /* --- Grid tombol --- */
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    /* --- Style tombol umum --- */
+    button {
+      padding: 20px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button:active { transform: scale(0.95); }
+
+    /* --- Variasi tombol --- */
+    .btn-operator { background: #ff9f43; color: #fff; }
+    .btn-operator:hover { background: #e68a2e; }
+
+    .btn-number { background: #2d2d3a; color: #fff; }
+    .btn-number:hover { background: #44445a; }
+
+    .btn-equal { 
+      background: #10ac84; 
+      color: #fff; 
+      grid-column: span 2;
+    }
+    .btn-equal:hover { background: #0e8f6f; }
+
+    .btn-clear { background: #ee5253; color: #fff; }
+    .btn-clear:hover { background: #c0392b; }
+
+    /* Responsif biar enak di HP */
+    @media (max-width: 480px) {
+      .calculator {
+        width: 90%;
+        padding: 15px;
+        border-radius: 15px;
+      }
+      .display {
+        font-size: 1.5rem;
+        padding: 10px;
+      }
+      button {
+        padding: 15px;
+        font-size: 1rem;
+        border-radius: 10px;
+      }
+      .buttons { gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <!-- layar kalkulator -->
+    <div id="display" class="display">0</div>
+
+    <!-- semua tombol -->
+    <div class="buttons">
+      <button class="btn-clear">C</button>
+      <button class="btn-operator">/</button>
+      <button class="btn-operator">*</button>
+      <button class="btn-operator">-</button>
+
+      <button class="btn-number">7</button>
+      <button class="btn-number">8</button>
+      <button class="btn-number">9</button>
+      <button class="btn-operator">+</button>
+
+      <button class="btn-number">4</button>
+      <button class="btn-number">5</button>
+      <button class="btn-number">6</button>
+      <button class="btn-number">.</button>
+
+      <button class="btn-number">1</button>
+      <button class="btn-number">2</button>
+      <button class="btn-number">3</button>
+
+      <!-- tombol back -->
+      <button onclick="goBack()">Back</button>
+
+      <!-- tombol sama dengan -->
+      <button class="btn-equal">=</button>
+
+      <!-- tombol 0 lebar -->
+      <button class="btn-number" style="grid-column: span 2;">0</button>
+    </div>
+  </div>
+
+  <script>
+    // ambil elemen display
+    const display = document.getElementById("display");
+    const buttons = document.querySelectorAll("button");
+    let currentInput = "0"; // angka default
+
+    // update isi display
+    function updateDisplay() {
+      display.textContent = currentInput;
+    }
+
+    // event listener semua tombol
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const val = btn.textContent;
+
+        if (btn.classList.contains("btn-number")) {
+          // kalau angka ditekan
+          currentInput = (currentInput === "0") ? val : currentInput + val;
+        } else if (btn.classList.contains("btn-operator")) {
+          currentInput += val;
+        } else if (btn.classList.contains("btn-clear")) {
+          currentInput = "0"; // reset
+        } else if (btn.classList.contains("btn-equal")) {
+          try {
+            currentInput = eval(currentInput).toString();
+          } catch (err) {
+            currentInput = "Error"; // kalau rumusnya salah
+          }
+        }
+        updateDisplay();
+      });
+    });
+
+    // tombol kembali dengan konfirmasi
+    function goBack() {
+      const yakin = confirm("Apakah Anda yakin ingin kembali ke halaman sebelumnya?");
+      if (yakin) {
+        window.history.back();
+      }
+    }
+
+    // TODO: mungkin bisa tambahin fitur keyboard input
+  </script>
+</body>
+</html>
