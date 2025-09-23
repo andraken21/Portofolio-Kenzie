@@ -1,0 +1,215 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Of Hindia</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="icon" type="image/png" href="hindia.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* body */
+    body {
+      background: linear-gradient(135deg, #ece9e6, #ffffff);
+      color: #333;
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navbar */
+    .navbar {
+      backdrop-filter: blur(8px);
+      background: rgba(33, 37, 41, 0.9) !important;
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+    }
+
+    /* Section Hero */
+    .hero-section {
+      padding: 40px 0;
+    }
+
+    .hero-section h1 {
+      font-weight: 700;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-section p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .hero-section img {
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s;
+    }
+    .hero-section img:hover {
+      transform: scale(1.03);
+    }
+
+    /* Tombol */
+    .btn-custom {
+      border-radius: 25px;
+      padding: 8px 18px;
+      transition: all 0.3s ease;
+    }
+    .btn-custom:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Card Album */
+    .card {
+      border: none;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .card-img-top {
+      height: 18rem;
+      object-fit: cover;
+    }
+
+    /* Judul Section */
+    h2 {
+      text-align: center;
+      font-weight: 700;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    /* Search input */
+    input[type="search"] {
+      border-radius: 20px;
+      padding: 8px 15px;
+      border: 1px solid #ced4da;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    input[type="search"]:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0,123,255,0.5);
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="hindia.html">Hindia</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Sosial Media</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="https://www.instagram.com/wordfangs/">Instagram</a></li>
+            <li><a class="dropdown-item" href="https://www.youtube.com/@Hindia">Youtube</a></li>
+            <li><a class="dropdown-item" href="https://open.spotify.com/artist/51kyrUsAVqUBcoDEMFkX12">Spotify</a></li>
+            <li><a class="dropdown-item" href="https://www.youtube.com/@Hindia">TikTok</a></li>
+            <li><a class="dropdown-item" href="https://x.com/wordfangs">X</a></li>
+          </ul>
+        </li>
+        <!-- Berita -->
+        <li class="nav-item"><a class="nav-link active" href="https://www.detik.com/tag/baskara-putra">Berita</a></li>
+        <!-- Informasi -->
+        <li class="nav-item"><a class="nav-link active" href="https://www.hindia1024.com/">Informasi</a></li>
+        <li class="nav-item"><a class="nav-link active" href="index.html">Kembali</a></li>
+      </ul>
+      <!-- Search -->
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search">
+        <button class="btn btn-outline-success btn-custom" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!-- Section Hero -->
+<section class="hero-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col">
+        <h1>Hai!, Saya Daniel Baskara Putra</h1>
+        <p align="justify">
+          Atau lebih dikenal dengan Nama <b>Hindia</b> (lahir 22 Februari 1994) adalah penyanyi-penulis lagu, 
+          produser rekaman, dan komposer Indonesia. Baskara sekaligus juga vokalis grup musik <b>.Feast</b>, 
+          serta frontman dari grup band yang dibentuknya itu, pada tahun 2019 yang bertajuk <b>Lomba Sihir</b>.
+          ...
+        </p>
+        <h5>Contact Baskara</h5>
+        <a href="https://wa.me/+6283879088296" class="btn btn-danger btn-custom">Jangan Ditekan!!</a>
+      </div>
+      <div class="col d-none d-md-block">
+        <img src="baskara.png" alt="Foto Baskara Putra" width="100%">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Album -->
+<div class="container mt-5">
+  <h2>Album Hindia</h2>
+  <div class="row g-4 mt-3">
+
+    <div class="col-sm-6 col-md-4">
+      <div class="card">
+        <img src="doves.png" class="card-img-top" alt="Album Doves">
+        <div class="card-body">
+          <h5 class="card-title">Doves, '25 on Blank Canvas (2025)</h5>
+          <p class="card-text" align="justify">Doves, '25 on Blank Canvas merupakan mixtape milik Hindia, dirilis 
+          24 Februari 2025...</p> 
+          <a href="https://open.spotify.com/album/6HiRRMXgflIyrpjCiPW8rU" class="btn btn-primary btn-custom">Dengarkan Album</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-4">
+      <div class="card">
+        <img src="lagipula.png" class="card-img-top" alt="Album Lagipula Hidup Akan Berakhir">
+        <div class="card-body">
+          <h5 class="card-title">Lagipula Hidup Akan Berakhir (2023)</h5>
+          <p class="card-text" align="justify">Album studio kedua Hindia yang dirilis pada 7 Juli 2023...</p>
+          <a href="https://open.spotify.com/album/0DMdiWcqnutCi81EqBXkF8" class="btn btn-primary btn-custom">Dengarkan Album</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-4">
+      <div class="card">
+        <img src="menari.png" class="card-img-top" alt="Album Menari dengan Bayangan">
+        <div class="card-body">
+          <h5 class="card-title">Menari dengan Bayangan (2019)</h5>
+          <p class="card-text" align="justify">Debut pertama Baskara sebagai Hindia dengan 15 lagu penuh keresahan...</p>
+          <a href="https://open.spotify.com/album/1DAuVHMlBvIjzWZALSUXbn" class="btn btn-primary btn-custom">Dengarkan Albumnya</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/bootstrap.bundle.js"></script>
+</body>
+</html>
